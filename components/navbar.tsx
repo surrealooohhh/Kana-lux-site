@@ -36,12 +36,12 @@ export function Navbar() {
     <>
       <header className="fixed left-0 right-0 top-0 z-40 border-b border-border/60 bg-background/65 backdrop-blur-2xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6">
-          <Link href="/" className="mr-2 flex items-center gap-2 font-semibold"><span className="grid h-8 w-8 place-items-center rounded-lg bg-foreground text-background">あ</span><span className="hidden sm:inline">Kana Lux</span></Link>
-          <nav className="hidden min-w-0 flex-1 items-center gap-1 overflow-x-auto lg:flex">{items.map(([label, href]) => <Link key={href} href={href} className={cn("rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground", pathname === href && "bg-muted text-foreground")}>{label}</Link>)}</nav>
-          <div className="ml-auto hidden w-[260px] md:block">{searchBox}</div>
-          <Button variant="ghost" className="h-10 px-3" aria-label="Toggle language" onClick={toggleLanguage}>{language === "zh" ? "EN" : "中"}</Button>
-          <Button variant="ghost" size="icon" aria-label="Toggle dark mode" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}><Sun className="h-4 w-4 dark:hidden" /><Moon className="hidden h-4 w-4 dark:block" /></Button>
-          <Button asChild variant="ghost" className="h-10 gap-2 px-3" aria-label="GitHub"><Link href="https://github.com/surrealooohhh" target="_blank" rel="noreferrer"><Github className="h-4 w-4" /><span className="hidden sm:inline">GitHub</span></Link></Button>
+          <Link href="/" className="mr-2 flex shrink-0 items-center gap-2 whitespace-nowrap font-semibold"><span className="grid h-8 w-8 place-items-center rounded-lg bg-foreground text-background">あ</span><span className="hidden sm:inline">Kana Lux</span></Link>
+          <nav className="hidden min-w-0 flex-1 items-center gap-1 overflow-x-auto lg:flex">{items.map(([label, href]) => <Link key={href} href={href} className={cn("shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground xl:px-3", pathname === href && "bg-muted text-foreground")}>{label}</Link>)}</nav>
+          <div className="ml-auto hidden w-[210px] shrink-0 xl:block xl:w-[260px]">{searchBox}</div>
+          <Button variant="ghost" className="h-10 shrink-0 px-3" aria-label="Toggle language" onClick={toggleLanguage}>{language === "zh" ? "EN" : "中"}</Button>
+          <Button variant="ghost" size="icon" className="shrink-0" aria-label="Toggle dark mode" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}><Sun className="h-4 w-4 dark:hidden" /><Moon className="hidden h-4 w-4 dark:block" /></Button>
+          <Button asChild variant="ghost" className="h-10 shrink-0 gap-2 px-3" aria-label="GitHub"><Link href="https://github.com/surrealooohhh" target="_blank" rel="noreferrer"><Github className="h-4 w-4" /><span className="hidden sm:inline">GitHub</span></Link></Button>
         </div>
         <nav className="flex gap-1 overflow-x-auto px-4 pb-3 lg:hidden">{items.map(([label, href]) => <Link key={href} href={href} className={cn("shrink-0 rounded-full px-3 py-1.5 text-xs text-muted-foreground", pathname === href && "bg-muted text-foreground")}>{label}</Link>)}</nav>
         <div className="px-4 pb-3 md:hidden">{searchBox}</div>
