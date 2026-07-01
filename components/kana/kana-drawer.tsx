@@ -1,7 +1,6 @@
 "use client";
 
-import { Heart, Play, Volume2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { Heart, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { useKanaProgress } from "@/hooks/use-kana-progress";
@@ -25,13 +24,6 @@ export function KanaDrawer({ kana, open, onOpenChange }: { kana: KanaItem | null
           <div className="mt-5 flex gap-2">
             <Button className="flex-1" onClick={() => { speak(kana.hiragana); markRecent(kana.id); }}><Volume2 className="h-4 w-4" />发音</Button>
             <Button variant="secondary" onClick={() => toggleFavorite(kana.id)}><Heart className={cn("h-4 w-4", favoriteSet.has(kana.id) && "fill-rose-500 text-rose-500")} />收藏</Button>
-          </div>
-          <div className="mt-6 rounded-2xl border border-border bg-background/45 p-5">
-            <div className="mb-4 flex items-center justify-between"><h3 className="font-semibold">SVG 笔顺动画</h3><Play className="h-4 w-4 text-primary" /></div>
-            <svg viewBox="0 0 180 120" className="h-36 w-full">
-              <motion.path d="M35 78 C62 16 112 18 143 76" fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 0.7 }} className="text-primary" />
-              <text x="90" y="74" textAnchor="middle" className="fill-foreground text-5xl font-semibold">{kana.hiragana}</text>
-            </svg>
           </div>
           <Info title="中文解释" body={kana.zh} />
           <Info title="English" body={kana.en} />
